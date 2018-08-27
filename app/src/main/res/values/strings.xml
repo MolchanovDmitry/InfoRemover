@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">InfoRemover</string>
+    <string name="choose_apps_for_remove">Выберите приложения</string>
 </resources>

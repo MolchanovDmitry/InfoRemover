@@ -17,6 +17,7 @@ class AppListActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_app_list)
 
+        setTitle(R.string.choose_apps_for_remove)
         val applicationInfoList = applicationInfoList
         recycler_view.layoutManager = LinearLayoutManager(this)
         recycler_view.adapter = ApplicationAdapter(applicationInfoList)
