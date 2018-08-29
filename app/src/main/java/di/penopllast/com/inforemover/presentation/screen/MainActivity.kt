@@ -1,9 +1,11 @@
-package di.penopllast.com.inforemover
+package di.penopllast.com.inforemover.presentation.screen
 
 import android.content.Intent
 import android.os.Handler
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import di.penopllast.com.inforemover.R
+import di.penopllast.com.inforemover.presentation.screen.impl.AppListActivity
 import kotlinx.android.synthetic.main.activity_main.*
 
 class MainActivity : AppCompatActivity() {
@@ -11,6 +13,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+
     }
 
     override fun onResume() {

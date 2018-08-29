@@ -17,7 +17,7 @@ class RepositoryModule {
 
     @Provides
     @Singleton
-    internal fun provideRepositoryNetwork(context: Context): RepositoryDb {
+    internal fun provideRepositoryDb(context: Context): RepositoryDb {
         return RepositoryDbImpl(context)
     }
 

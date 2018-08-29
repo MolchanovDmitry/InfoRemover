@@ -5,10 +5,4 @@ import android.arch.persistence.room.PrimaryKey
 
 
 @Entity
-class SelectedApp {
-
-    @PrimaryKey
-    lateinit var pack: String;
-
-    lateinit var name: String
-}
+class SelectedApp(@PrimaryKey var packageName: String, val name: String)

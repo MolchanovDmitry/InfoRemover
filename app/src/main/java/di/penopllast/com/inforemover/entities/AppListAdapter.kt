@@ -1,26 +1,34 @@
 package di.penopllast.com.inforemover.entities
 
+import android.os.Handler
 import android.support.v7.widget.RecyclerView
 import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.CheckBox
+import android.widget.ImageView
+import android.widget.TextView
 
 import di.penopllast.com.inforemover.R
 import kotlinx.android.synthetic.main.item_app.view.*
 import di.penopllast.com.inforemover.application.Utils.Util
+import di.penopllast.com.inforemover.presentation.screen.impl.AdapterCallback
 
 
-class ApplicationAdapter(private val appList: List<ApplicationInfo>)
-    : RecyclerView.Adapter<ApplicationAdapter.ViewHolder>() {
+class AppListAdapter(
+        private val appList: List<ApplicationInfo>,
+        private val callback: AdapterCallback)
+    : RecyclerView.Adapter<AppListAdapter.ViewHolder>() {
 
     init {
         Log.i("test", "size = " + appList.size)
     }
 
     class ViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
-        val icon = view.icon_image!!
-        val name = view.name_text!!
+        val icon: ImageView = view.icon_image
+        val name: TextView = view.name_text
+        val checkbox: CheckBox = view.checkbox
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
@@ -34,7 +42,9 @@ class ApplicationAdapter(private val appList: List<ApplicationInfo>)
         val appInfo = appList[position]
         holder.name.text = appInfo.name
         holder.icon.setImageDrawable(appInfo.icon)
-        holder.view.setOnClickListener { Util.print("Нажали на ${appInfo.name}")}
+        holder.checkbox.setOnClickListener {
+            callback.onClick(appInfo.packageName, appInfo.name, holder.checkbox.isChecked)
+        }
     }
 
     override fun getItemCount(): Int {

@@ -5,6 +5,6 @@ import android.arch.persistence.room.RoomDatabase
 
 @Database(entities = arrayOf(SelectedApp::class), version = 1)
 abstract class AppDataBase : RoomDatabase() {
-    abstract fun selectedAppDao(): SelectedApp
+    abstract fun selectedAppDao(): SelectedAppsDao
 
 }
